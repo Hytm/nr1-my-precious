@@ -1,0 +1,7 @@
+{
+    "schemaType": "LAUNCHER",
+    "id": "my-precious-launcher",
+    "description": "Browse Github to find nerdlet",
+    "displayName": "My Precious",
+    "rootNerdletId": "my-precious-nerdlet"
+}

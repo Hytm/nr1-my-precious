@@ -13,7 +13,7 @@ export default class MyPreciousNerdlet extends React.Component {
 
         this.state = {
             repositories: [],
-            repos: 'https://api.github.com/repos/:owner/:repo/readme?access_token=780a000bc14c07abaf5e345f7adc6ebe411d8f09',
+            repos: 'https://api.github.com/repos/:owner/:repo/readme?access_token={your_access_token}',
             seeMore: 'https://github.com/search?q=filename%3Anr1.json&type=Code&sort=stars',
             loading: true,
             ts: `git clone https://github.com/$1/$2.git
@@ -33,7 +33,7 @@ rm -rf $2`
     async componentDidMount() {
         var total = 0
         var perPage = 0
-        var uri = 'https://api.github.com/search/code?q=%22schemaType%22:%20%22NERDLET%22&in:file&access_token=780a000bc14c07abaf5e345f7adc6ebe411d8f09&page='
+        var uri = 'https://api.github.com/search/code?q=%22schemaType%22:%20%22NERDLET%22&in:file&access_token={your_access_token}&page='
         var res = await axios.get(uri + 0)
         var r = res.data.items
         total = res.data.total_count

@@ -13,7 +13,6 @@ export default class MyPreciousNerdlet extends React.Component {
 
         this.state = {
             repositories: [],
-            repos: 'https://api.github.com/repos/:owner/:repo/readme?access_token={your_access_token}',
             seeMore: 'https://github.com/search?q=filename%3Anr1.json&type=Code&sort=stars',
             loading: true,
             ts: `git clone https://github.com/$1/$2.git
@@ -26,14 +25,15 @@ nr1 nerdpack:deploy -c STABLE
 nr1 nerdpack:subscribe -c STABLE
 
 cd ..
-rm -rf $2`
+rm -rf $2
+`
         }
     }
 
     async componentDidMount() {
         var total = 0
         var perPage = 0
-        var uri = 'https://api.github.com/search/code?q=%22schemaType%22:%20%22NERDLET%22&in:file&access_token={your_access_token}&page='
+        var uri = 'https://api.github.com/search/code?q=%22schemaType%22:%20%22NERDLET%22&in:file&access_token=9efad3349600805f175a3e835d287ac5b09641be&page='
         var res = await axios.get(uri + 0)
         var r = res.data.items
         total = res.data.total_count
@@ -115,6 +115,11 @@ rm -rf $2`
             <div>
                 <HeadingText spacingType={[HeadingText.SPACING_TYPE.MEDIUM]}>
                     We check the public repositories from Github on a specific file content ("schemaType": "NERDLET") to show all publicly available Nerdlets
+                     <Button
+                        onClick={() => window.open(this.state.seeMore, "_blank")}
+                        type={Button.TYPE.PRIMARY}
+                        spacingType={[Button.SPACING_TYPE.MEDIUM]}
+                    >See more on Github</Button>
                 </HeadingText>
                 <Grid>
                     {mainDiv}

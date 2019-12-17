@@ -33,7 +33,7 @@ rm -rf $2
     async componentDidMount() {
         var total = 0
         var perPage = 0
-        var uri = 'https://api.github.com/search/code?q=%22schemaType%22:%20%22NERDLET%22&in:file&access_token=9efad3349600805f175a3e835d287ac5b09641be&page='
+        var uri = 'https://api.github.com/search/code?q=%22schemaType%22:%20%22NERDLET%22&in:file&access_token={your access token}&page='
         var res = await axios.get(uri + 0)
         var r = res.data.items
         total = res.data.total_count
